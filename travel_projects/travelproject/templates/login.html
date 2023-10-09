@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Form</title>
+  <style>
+    form {
+      margin: auto;
+      width: min(600px, 80%);
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background-color:#DAE6EC;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    input[type="submit"],
+    textarea,
+    select,
+    #dob {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-sizing: border-box;
+      opacity: 0.5;
+    }
+
+    textarea {
+      height: 100px;
+      resize: vertical;
+    }
+
+    .checkboxes {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin: 20px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 10px;
+    }
+
+    .checkbox {
+      display: flex;
+      align-items: flex-start;
+      margin-right: 20px;
+    }
+
+    .checkboxes label {
+      margin-right: 20px;
+    }
+    .buttons {
+      display: flex;
+      justify-content: center;
+    }
+
+    .buttons button {
+      background-color: #854d28;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      width: 150px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    .buttons button:hover {
+      background-color: #6e4225;
+    }
+  </style>
+</head>
+<body>
+<form action="login" method="POST">
+    <h2>Login</h2>
+    {% csrf_token %}
+    <label for="user">Username:</label>
+    <input type="text" id="user" name="user" >
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password">
+     <div class="buttons">
+         <input type="submit" value="login">
+    </div>
+{% for msg in messages %}
+    <h3>{{msg}}</h3>
+    {% endfor %}
+
+  </form>
+
+</body>
+</html>
